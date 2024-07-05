@@ -54,3 +54,5 @@ CharacterController角色控制器相关按键：
 角色走路：WASD或方向键
 角色跳跃：空格
 角色旋转（仅第三人称过肩视角时）：A、D或方向键左右
+#### 感谢雨落随风的转码工具
+https://github.com/Bian-Sh/Script-Encoding-Converter
