@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Obstacle2Transparente : MonoBehaviour
 {
     private GameObject player;
-    public Material alphaMaterial;//Í¸Ã÷²ÄÖÊ
+    public Material alphaMaterial;//é€æ˜æè´¨
 
     private List<RaycastHit> hits = new List<RaycastHit>();
     private List<HitInfo> changedInfos = new List<HitInfo>();
@@ -29,13 +29,13 @@ public class Obstacle2Transparente : MonoBehaviour
 
     private void ChangeMaterial()
     {
-        //ÓÃÏà»úÎ»ÖÃÓë½ÇÉ«Î»ÖÃµÄ²îÖµ-1ÊÇÎªÁË±ÜÃâ¼ì²âµ½µØÃæ£¬Ìá¸ß¿ÉÒÆÖ²ĞÔ£¬·ñÔòÉäÏß¼ì²âµ½µÄ¶ÔÏó»¹Òª³ıÈ¥µØÃæ
+        //ç”¨ç›¸æœºä½ç½®ä¸è§’è‰²ä½ç½®çš„å·®å€¼-1æ˜¯ä¸ºäº†é¿å…æ£€æµ‹åˆ°åœ°é¢ï¼Œæé«˜å¯ç§»æ¤æ€§ï¼Œå¦åˆ™å°„çº¿æ£€æµ‹åˆ°çš„å¯¹è±¡è¿˜è¦é™¤å»åœ°é¢
         hits.AddRange(Physics.RaycastAll(transform.position, transform.forward, Vector3.Distance(this.transform.position, player.transform.position) - 1));
 
-        //Ìæ»»²ÄÖÊ
+        //æ›¿æ¢æè´¨
         for (int i = 0; i < hits.Count; i++)
         {
-            //ÉäÏß¼ì²âµ½µÄ¶ÔÏó³ıÈ¥½ÇÉ«
+            //å°„çº¿æ£€æµ‹åˆ°çš„å¯¹è±¡é™¤å»è§’è‰²
             if (hits[i].collider.gameObject.name != player.name)
             {
                 var hit = hits[i];
@@ -44,7 +44,7 @@ public class Obstacle2Transparente : MonoBehaviour
 
                 if (rendArray.Length > 0)
                 {
-                    //Ã»ÕÒµ½ÔòÌí¼Ó
+                    //æ²¡æ‰¾åˆ°åˆ™æ·»åŠ 
                     if (findIndex < 0)
                     {
                         var changed = new HitInfo();
@@ -63,7 +63,7 @@ public class Obstacle2Transparente : MonoBehaviour
                                 tempMaterials[k] = alphaMaterial;
                             }
 
-                            rendArray[j].materials = tempMaterials;//Ìæ»»²ÄÖÊ
+                            rendArray[j].materials = tempMaterials;//æ›¿æ¢æè´¨
                         }
 
                         changedInfos.Add(changed);
@@ -72,20 +72,20 @@ public class Obstacle2Transparente : MonoBehaviour
             }
         }
 
-        //»¹Ô­²ÄÖÊ
+        //è¿˜åŸæè´¨
         for (int i = 0; i < changedInfos.Count;)
         {
             var changedInfo = changedInfos[i];
             var findIndex = hits.FindIndex(item => item.collider.gameObject == changedInfo.obj);
 
-            //Ã»ÕÒµ½ÔòÒÆ³ı
+            //æ²¡æ‰¾åˆ°åˆ™ç§»é™¤
             if (findIndex < 0)
             {
                 if (changedInfo.obj != null)
                 {
                     foreach (var renderer in changedInfo.renderers)
                     {
-                        renderer.materials = changedInfo.materials.ToArray();//»¹Ô­²ÄÖÊ
+                        renderer.materials = changedInfo.materials.ToArray();//è¿˜åŸæè´¨
                     }
                 }
 

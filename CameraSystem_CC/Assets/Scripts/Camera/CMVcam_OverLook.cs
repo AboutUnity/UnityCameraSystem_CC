@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class CMVcam_OverLook : MonoBehaviour
 {
-    #region ×Ö¶Î
+    #region å­—æ®µ
     private CMVcamManager cmvCamManager;
 
     [Header("Cinemachine")]
     private CinemachineVirtualCamera virtualCamera;
     #endregion
 
-    #region ÉúÃüÖÜÆÚº¯Êı
+    #region ç”Ÿå‘½å‘¨æœŸå‡½æ•°
     void Awake()
     {
         cmvCamManager = CMVcamManager.Instance;
@@ -46,11 +46,11 @@ public class CMVcam_OverLook : MonoBehaviour
     }
     #endregion
 
-    #region ¼¤»î
+    #region æ¿€æ´»
     /// <summary>
-    /// ÊÇ·ñ¼¤»î
+    /// æ˜¯å¦æ¿€æ´»
     /// </summary>
-    /// <param name="isEnabled">ÊÇ·ñ¼¤»î</param>
+    /// <param name="isEnabled">æ˜¯å¦æ¿€æ´»</param>
     public void SetEnable(bool isEnabled = false)
     {
         virtualCamera.enabled = isEnabled;

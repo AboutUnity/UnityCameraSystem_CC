@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CMVcam_Free : MonoBehaviour
 {
-    #region ×Ö¶Î
+    #region å­—æ®µ
     private CMVcamManager cmvCamManager;
 
     [Header("Cinemachine")]
@@ -15,23 +15,23 @@ public class CMVcam_Free : MonoBehaviour
     private const float _threshold = 0.01f;
 
     [Header("Cinemachine_3rd")]
-    [Tooltip("ÉãÏñ»úÏòÉÏÒÆ¶¯×î´ó½Ç¶È")]
+    [Tooltip("æ‘„åƒæœºå‘ä¸Šç§»åŠ¨æœ€å¤§è§’åº¦")]
     public float topClamp_Free = 89.0f;
-    [Tooltip("ÉãÏñ»úÏòÏÂÒÆ¶¯×î´ó½Ç¶È")]
+    [Tooltip("æ‘„åƒæœºå‘ä¸‹ç§»åŠ¨æœ€å¤§è§’åº¦")]
     public float bottomClamp_Free = -30.0f;
-    [Tooltip("Ğı×ªËÙ¶È")]
+    [Tooltip("æ—‹è½¬é€Ÿåº¦")]
     public float rotationSpeed = 1.0f;
-    [Tooltip("¶îÍâµÄ¶ÈÊıÀ´¸²¸ÇÉãÏñÍ·£¬Ëø¶¨Ê±ÓÃÓÚÎ¢µ÷Ïà»úÎ»ÖÃ")]
+    [Tooltip("é¢å¤–çš„åº¦æ•°æ¥è¦†ç›–æ‘„åƒå¤´ï¼Œé”å®šæ—¶ç”¨äºå¾®è°ƒç›¸æœºä½ç½®")]
     public float cameraAngleOverride = 0.0f;
-    [Tooltip("ÉãÏñ»ú³õÊ¼¾àÀë")]
+    [Tooltip("æ‘„åƒæœºåˆå§‹è·ç¦»")]
     public float cameraDistance = 4.0f;
 
-    #region Êó±ê
+    #region é¼ æ ‡
     private float mouseX;
     private float mouseY;
     #endregion
 
-    #region Ğı×ª
+    #region æ—‹è½¬
     [Header("Controller Input")]
     public KeyCode resetCamera = KeyCode.P;
 
@@ -69,7 +69,7 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion    
 
-    #region Ëõ·Å
+    #region ç¼©æ”¾
     public KeyCode isMouseScrollZoom = KeyCode.RightAlt;
     public bool isMouseScrollZoom_ = true;
 
@@ -83,7 +83,7 @@ public class CMVcam_Free : MonoBehaviour
     #endregion
     #endregion
 
-    #region ÉúÃüÖÜÆÚº¯Êı
+    #region ç”Ÿå‘½å‘¨æœŸå‡½æ•°
     void Awake()
     {
         cmvCamManager = CMVcamManager.Instance;
@@ -144,12 +144,12 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion
 
-    #region ·½·¨
-    #region ¼¤»î
+    #region æ–¹æ³•
+    #region æ¿€æ´»
     /// <summary>
-    /// ÊÇ·ñ¼¤»î
+    /// æ˜¯å¦æ¿€æ´»
     /// </summary>
-    /// <param name="isEnabled">ÊÇ·ñ¼¤»î</param>
+    /// <param name="isEnabled">æ˜¯å¦æ¿€æ´»</param>
     public void SetEnable(bool isEnabled = true)
     {
         virtualCamera.enabled = isEnabled;
@@ -157,34 +157,34 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion
 
-    #region ÊäÈëÇĞ»»
+    #region è¾“å…¥åˆ‡æ¢
     private void SetInput()
     {
-        //°´ÏÂÓÒ²àAlt£¬ÇĞ»»¹öÂÖ/Êó±êYÖáËõ·Å
+        //æŒ‰ä¸‹å³ä¾§Altï¼Œåˆ‡æ¢æ»šè½®/é¼ æ ‡Yè½´ç¼©æ”¾
         if (Input.GetKeyDown(isMouseScrollZoom))
         {
             isMouseScrollZoom_ = !isMouseScrollZoom_;
         }
 
-        //°´ÏÂÓÒ²àCtrl£¬ÇĞ»»°´ÏÂÊó±ê×ó¼ü/Êó±êÒÆ¶¯Ğı×ª
+        //æŒ‰ä¸‹å³ä¾§Ctrlï¼Œåˆ‡æ¢æŒ‰ä¸‹é¼ æ ‡å·¦é”®/é¼ æ ‡ç§»åŠ¨æ—‹è½¬
         if (Input.GetKeyDown(isMouseBtnControlCamera))
         {
             isMouseBtnControlCamera_ = !isMouseBtnControlCamera_;
         }
 
-        //°´ÏÂ9£¬ÇĞ»»½ûÖ¹YÖáĞı×ª£¨½öË®Æ½Ğı×ª£©
+        //æŒ‰ä¸‹9ï¼Œåˆ‡æ¢ç¦æ­¢Yè½´æ—‹è½¬ï¼ˆä»…æ°´å¹³æ—‹è½¬ï¼‰
         if (Input.GetKeyDown(lockCameraPositionY))
         {
             lockCameraPositionY_ = !lockCameraPositionY_;
         }
 
-        //°´ÏÂ8£¬ÇĞ»»½ûÖ¹XÖáĞı×ª£¨½ö´¹Ö±Ğı×ª£©
+        //æŒ‰ä¸‹8ï¼Œåˆ‡æ¢ç¦æ­¢Xè½´æ—‹è½¬ï¼ˆä»…å‚ç›´æ—‹è½¬ï¼‰
         if (Input.GetKeyDown(lockCameraPositionX))
         {
             lockCameraPositionX_ = !lockCameraPositionX_;
         }
 
-        //°´ÏÂÊó±êÖĞ¼ü/ÓÒ¼ü£¬×ÔÓÉÒÆ¶¯ÉãÏñ»úÓë¸úËæÄ¿±êÏà¶ÔÎ»ÖÃ
+        //æŒ‰ä¸‹é¼ æ ‡ä¸­é”®/å³é”®ï¼Œè‡ªç”±ç§»åŠ¨æ‘„åƒæœºä¸è·Ÿéšç›®æ ‡ç›¸å¯¹ä½ç½®
         if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
         {
             isMoveCamera_ = true;
@@ -196,9 +196,9 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion
 
-    #region Ğı×ª
+    #region æ—‹è½¬
     /// <summary>
-    /// Ğı×ªÉãÏñ»ú
+    /// æ—‹è½¬æ‘„åƒæœº
     /// </summary>
     private void RotationCamera()
     {
@@ -233,9 +233,9 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion
 
-    #region Ëõ·Å
+    #region ç¼©æ”¾
     /// <summary>
-    /// Ëõ·ÅÉãÏñ»úÓë¸úËæÄ¿±ê¾àÀë
+    /// ç¼©æ”¾æ‘„åƒæœºä¸è·Ÿéšç›®æ ‡è·ç¦»
     /// </summary>
     private void ZoomCamera()
     {
@@ -252,7 +252,7 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion
 
-    #region ÒÆ¶¯
+    #region ç§»åŠ¨
     private void MoveCamera()
     {
         if (isMoveCamera_)
@@ -263,9 +263,9 @@ public class CMVcam_Free : MonoBehaviour
     }
     #endregion
 
-    #region ÖØÖÃ
+    #region é‡ç½®
     /// <summary>
-    /// ÖØÖÃÉãÏñ»ú
+    /// é‡ç½®æ‘„åƒæœº
     /// </summary>
     private void ResetCamera()
     {

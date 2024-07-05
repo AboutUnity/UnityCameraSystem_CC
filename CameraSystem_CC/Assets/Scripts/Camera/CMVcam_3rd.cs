@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CMVcam_3rd : MonoBehaviour
 {
-    #region ×Ö¶Î
+    #region å­—æ®µ
     private CMVcamManager cmvCamManager;
 
     [Header("Cinemachine")]
@@ -13,20 +13,20 @@ public class CMVcam_3rd : MonoBehaviour
     private const float _threshold = 0.01f;
 
     [Header("Cinemachine_1st")]
-    [Tooltip("ÉãÏñ»úÏòÉÏÒÆ¶¯×î´ó½Ç¶È")]
+    [Tooltip("æ‘„åƒæœºå‘ä¸Šç§»åŠ¨æœ€å¤§è§’åº¦")]
     public float topClamp_3rd = 80.0f;
-    [Tooltip("ÉãÏñ»úÏòÏÂÒÆ¶¯×î´ó½Ç¶È")]
+    [Tooltip("æ‘„åƒæœºå‘ä¸‹ç§»åŠ¨æœ€å¤§è§’åº¦")]
     public float bottomClamp_3rd = -40.0f;
-    [Tooltip("Ğı×ªËÙ¶È")]
+    [Tooltip("æ—‹è½¬é€Ÿåº¦")]
     public float rotationSpeed = 1.0f;
-    [Tooltip("¶îÍâµÄ¶ÈÊıÀ´¸²¸ÇÉãÏñÍ·£¬Ëø¶¨Ê±ÓÃÓÚÎ¢µ÷Ïà»úÎ»ÖÃ")]
+    [Tooltip("é¢å¤–çš„åº¦æ•°æ¥è¦†ç›–æ‘„åƒå¤´ï¼Œé”å®šæ—¶ç”¨äºå¾®è°ƒç›¸æœºä½ç½®")]
     public float cameraAngleOverride = 0.0f;
 
-    #region Êó±ê
+    #region é¼ æ ‡
     private float mouseY;
     #endregion
 
-    #region Ğı×ª
+    #region æ—‹è½¬
     [Header("Controller Input")]
     public bool isMoveCamera_ = false;
 
@@ -57,7 +57,7 @@ public class CMVcam_3rd : MonoBehaviour
     #endregion
     #endregion
 
-    #region ÉúÃüÖÜÆÚº¯Êı
+    #region ç”Ÿå‘½å‘¨æœŸå‡½æ•°
     void Awake()
     {
         cmvCamManager = CMVcamManager.Instance;
@@ -98,12 +98,12 @@ public class CMVcam_3rd : MonoBehaviour
     }
     #endregion
 
-    #region ·½·¨
-    #region ¼¤»î
+    #region æ–¹æ³•
+    #region æ¿€æ´»
     /// <summary>
-    /// ÊÇ·ñ¼¤»î
+    /// æ˜¯å¦æ¿€æ´»
     /// </summary>
-    /// <param name="isEnabled">ÊÇ·ñ¼¤»î</param>
+    /// <param name="isEnabled">æ˜¯å¦æ¿€æ´»</param>
     public void SetEnable(bool isEnabled = false)
     {
         virtualCamera.enabled = isEnabled;
@@ -111,10 +111,10 @@ public class CMVcam_3rd : MonoBehaviour
     }
     #endregion
 
-    #region ÊäÈëÇĞ»»
+    #region è¾“å…¥åˆ‡æ¢
     private void SetInput()
     {
-        //°´ÏÂÓÒ²àCtrl£¬ÇĞ»»°´ÏÂÊó±ê×ó¼ü/Êó±êÒÆ¶¯Ğı×ª
+        //æŒ‰ä¸‹å³ä¾§Ctrlï¼Œåˆ‡æ¢æŒ‰ä¸‹é¼ æ ‡å·¦é”®/é¼ æ ‡ç§»åŠ¨æ—‹è½¬
         if (Input.GetKeyDown(isMouseBtnControlCamera))
         {
             isMouseBtnControlCamera_ = !isMouseBtnControlCamera_;
@@ -122,9 +122,9 @@ public class CMVcam_3rd : MonoBehaviour
     }
     #endregion
 
-    #region Ğı×ª
+    #region æ—‹è½¬
     /// <summary>
-    /// Ğı×ªÉãÏñ»ú
+    /// æ—‹è½¬æ‘„åƒæœº
     /// </summary>
     private void RotationCamera()
     {

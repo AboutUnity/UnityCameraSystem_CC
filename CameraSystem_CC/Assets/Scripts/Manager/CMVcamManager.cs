@@ -3,16 +3,16 @@ using StarterAssets;
 
 public class CMVcamManager : MonoSingleton<CMVcamManager>
 {
-    #region ×Ö¶Î
-    #region ½ÇÉ«
+    #region å­—æ®µ
+    #region è§’è‰²
     [HideInInspector]
     public PlayerController_CC playerController;
     [HideInInspector]
     public PlayerInputController_CC inputController;
     #endregion
 
-    #region ÉãÏñ»ú
-    [Header("Íæ¼ÒÉíÉÏµÄ¸úËæÄ¿±ê")]
+    #region æ‘„åƒæœº
+    [Header("ç©å®¶èº«ä¸Šçš„è·Ÿéšç›®æ ‡")]
     [HideInInspector]
     public Transform followTarget_1st;
     [HideInInspector]
@@ -20,14 +20,14 @@ public class CMVcamManager : MonoSingleton<CMVcamManager>
     [HideInInspector]
     public Transform followTarget_Free;
 
-    [Header("ĞéÄâÏà»ú")]
+    [Header("è™šæ‹Ÿç›¸æœº")]
     public CMVcam_1st cmvCam_1st;
     public CMVcam_3rd cmvCam_3rd;
     public CMVcam_Free cmvCam_Free;
     public CMVcam_Quarter CMVcam_Quarter;
     public CMVcam_OverLook CMVcam_OverLook;
 
-    [Header("ÇĞ»»ÊÓ½Ç")]
+    [Header("åˆ‡æ¢è§†è§’")]
     public KeyCode is1st = KeyCode.V;
     public bool is1st_ = false;
 
@@ -41,14 +41,14 @@ public class CMVcamManager : MonoSingleton<CMVcamManager>
     public bool isOverLook_ = false;
     #endregion
 
-    #region Êó±ê
-    [Header("Êó±êÏÔÊ¾/Òş²Ø")]
+    #region é¼ æ ‡
+    [Header("é¼ æ ‡æ˜¾ç¤º/éšè—")]
     public KeyCode isCursorLocked = KeyCode.Alpha0;
     public bool isCursorLocked_ = false;
     #endregion
     #endregion
 
-    #region ÉúÃüÖÜÆÚº¯Êı
+    #region ç”Ÿå‘½å‘¨æœŸå‡½æ•°
     void Start()
     {
         is1st_ = false;
@@ -102,18 +102,18 @@ public class CMVcamManager : MonoSingleton<CMVcamManager>
     }
     #endregion
 
-    #region ·½·¨
+    #region æ–¹æ³•
     private void Input()
     {
-        //°´ÏÂ0£¬ÇĞ»»ÊÇ·ñÏÔÊ¾Êó±ê
+        //æŒ‰ä¸‹0ï¼Œåˆ‡æ¢æ˜¯å¦æ˜¾ç¤ºé¼ æ ‡
         if (UnityEngine.Input.GetKeyDown(isCursorLocked))
         {
             isCursorLocked_ = !isCursorLocked_;
             SetCursorState(isCursorLocked_);
         }
 
-        #region ÇĞ»»ÊÓ½Ç
-        //µÚÒ»ÈË³ÆÊÓ½Ç/×ÔÓÉÊÓ½ÇÇĞ»»
+        #region åˆ‡æ¢è§†è§’
+        //ç¬¬ä¸€äººç§°è§†è§’/è‡ªç”±è§†è§’åˆ‡æ¢
         if (UnityEngine.Input.GetKeyDown(is1st))
         {
             is1st_ = !is1st_;
@@ -131,7 +131,7 @@ public class CMVcamManager : MonoSingleton<CMVcamManager>
             playerController.mesh_CutOut.SetActive(is1st_);
         }
 
-        //µÚÈıÈË³Æ¹ı¼çÊÓ½Ç/×ÔÓÉÊÓ½ÇÇĞ»»
+        //ç¬¬ä¸‰äººç§°è¿‡è‚©è§†è§’/è‡ªç”±è§†è§’åˆ‡æ¢
         if (UnityEngine.Input.GetKeyDown(is3rd))
         {
             is3rd_ = !is3rd_;
@@ -149,7 +149,7 @@ public class CMVcamManager : MonoSingleton<CMVcamManager>
             playerController.mesh_CutOut.SetActive(false);
         }
 
-        //Ğ±45¶ÈÊÓ½Ç/×ÔÓÉÊÓ½ÇÇĞ»»
+        //æ–œ45åº¦è§†è§’/è‡ªç”±è§†è§’åˆ‡æ¢
         if (UnityEngine.Input.GetKeyDown(isQuarter))
         {
             isQuarter_ = !isQuarter_;
@@ -167,7 +167,7 @@ public class CMVcamManager : MonoSingleton<CMVcamManager>
             playerController.mesh_CutOut.SetActive(false);
         }
 
-        //¸©ÊÓ½Ç/×ÔÓÉÊÓ½ÇÇĞ»»
+        //ä¿¯è§†è§’/è‡ªç”±è§†è§’åˆ‡æ¢
         if (UnityEngine.Input.GetKeyDown(isOverLook))
         {
             isOverLook_ = !isOverLook_;
